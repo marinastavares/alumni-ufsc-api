@@ -13,7 +13,8 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "dev": "nodemon app.js",
+    "start": "nodemon app.js",
+    "web": "node app.js",
     "convert": "node script.js"
   }
 }
