@@ -5,16 +5,21 @@ var mongoose = require('mongoose');
 var port = 8080;
 var db = 'mongodb://localhost/example';
 
-var books = require('./routes/books');
+var alumni = require('./routes/alumni');
+let url = "mongodb+srv://admin:alumni@bd-alunos.qtji9.mongodb.net/test?authSource=admin&replicaSet=atlas-w3vbyk-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 
-mongoose.connect(db);
+mongoose.connect(url,{
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+}); //via Modulus
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use('/books', books);
+app.use('/alumni', alumni);
 
 app.get('/', function(req, res){
     console.log('app starting on port: '+port)

@@ -1,50 +1,55 @@
 var express = require('express');
-var Book = require('../models/book');
+var Alumni = require('../models/alumni');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    console.log('getting all books');
-    Book.find({}).exec(function(err, books){
+    console.log('getting all alumni');
+    Alumni.find({}).exec(function(err, alumni){
         if(err) {
             res.send('error has occured');
         } else {
-            console.log(books);
-            res.json(books);
+            console.log(alumni);
+            res.json(alumni);
         }
     });
 });
 
 router.get('/:id', function(req, res){
-    console.log('getting one book');
-    Book.findOne({
+    console.log('getting one alumni');
+    Alumni.findOne({
         _id: req.params.id
-    }).exec(function(err, book){
+    }).exec(function(err, alumni){
         if(err) {
             res.send('error has occured');
         } else {
-            console.log(book);
-            res.json(book);
+            console.log(alumni);
+            res.json(alumni);
         }
     });
 });
 
 router.post('/', function(req, res){
-    var newBook = new Book();
-    newBook.title = req.body.title;
-    newBook.author = req.body.author;
-    newBook.category = req.body.category;
-    newBook.save(function(err, book){
+    var newAlumni = new Alumni();
+    newAlumni.full_name = req.body.full_name;
+    newAlumni.start_by = req.body.start_by;
+    newAlumni.end_by = req.body.end_by;
+    newAlumni.linkedin = req.body.linkedin;
+    newAlumni.country = req.body.country;
+    newAlumni.position = req.body.position;
+    newAlumni.company = req.body.company;
+    newAlumni.ufsc = req.body.ufsc;
+    newAlumni.save(function(err, alumni){
         if(err) {
-            res.send('error saving book');
+            res.send('error saving alumni');
         } else {
-            console.log(book);
-            res.send(book);
+            console.log(alumni);
+            res.send(alumni);
         }
     });
 });
 
 router.put('/:id', function(req, res){
-    Book.findOneAndUpdate({
+    Alumni.findOneAndUpdate({
         _id: req.params.id
     },{
         $set: {
@@ -54,25 +59,25 @@ router.put('/:id', function(req, res){
         }
     },{
         upsert: true
-    },function(err, newBook){
+    },function(err, newAlumni){
         if(err) {
-            res.send('error updating book');
+            res.send('error updating alumni');
         } else {
-            console.log(newBook);
-            res.send(newBook);
+            console.log(newAlumni);
+            res.send(newAlumni);
         }
     });
 });
 
 router.delete('/:id', function(req, res){
-    Book.findByIdAndRemove({
+    Alumni.findByIdAndRemove({
         _id: req.params.id
-    },function(err, book){
+    },function(err, alumni){
         if(err) {
-            res.send('error deleting book');
+            res.send('error deleting alumni');
         } else {
-            console.log(book);
-            res.send(book);
+            console.log(alumni);
+            res.send(alumni);
         }
     });
 });
