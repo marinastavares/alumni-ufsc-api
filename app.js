@@ -3,10 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var port = 8080;
-var db = 'mongodb://localhost/example';
-
 var alumni = require('./routes/alumni');
-let url = "mongodb+srv://admin:alumni@bd-alunos.qtji9.mongodb.net/test?authSource=admin&replicaSet=atlas-w3vbyk-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
+let url = "mongodb+srv://alumni:alumni@bd-alunos.qtji9.mongodb.net/test";
 
 mongoose.connect(url,{
   useNewUrlParser: true,

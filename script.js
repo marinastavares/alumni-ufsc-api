@@ -4,7 +4,7 @@ const fastcsv = require("fast-csv");
 var Alumni = require('./models/alumni');
 
 // let url = "mongodb://username:password@localhost:27017/";
-let url = "mongodb+srv://admin:alumni@bd-alunos.qtji9.mongodb.net/test?authSource=admin&replicaSet=atlas-w3vbyk-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
+let url = "mongodb+srv://alumni:alumni@bd-alunos.qtji9.mongodb.net/test";
 mongoose.connect(url,{
   useNewUrlParser: true,
   useFindAndModify: false,
