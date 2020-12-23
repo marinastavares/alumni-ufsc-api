@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var port = 8080;
 var alumni = require('./routes/alumni');
 let url = "mongodb+srv://alumni:alumni@bd-alunos.qtji9.mongodb.net/test";
 
@@ -24,6 +23,6 @@ app.get('/', function(req, res){
     res.send('tes express nodejs mongodb');
 });
 
-app.listen(port, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log('app listening on port: '+port);
 });

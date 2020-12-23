@@ -16,5 +16,8 @@
     "start": "node app.js",
     "web": "node app.js",
     "convert": "node script.js"
+  },
+  "engines": {
+    "node": "12.11.1"
   }
 }
